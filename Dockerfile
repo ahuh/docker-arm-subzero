@@ -5,6 +5,11 @@
 FROM resin/rpi-raspbian:jessie
 LABEL maintainer "ahuh"
 
+ENV QEMU_EXECVE 1
+COPY armv7hf-debian-qemu /usr/bin
+
+RUN ["cross-build-start"]
+
 # Volume config: contains SubZero.properties (generated at first start if needed)
 VOLUME /config
 # Volume workingfolder: contains files to process (tv shows)
@@ -56,6 +61,8 @@ ADD subzero/ /etc/subzero/
 
 # Make scripts executable
 RUN chmod 777 /etc/subzero/*.sh
+
+RUN ["cross-build-end"]
 
 # Launch Subzero at container start
 CMD ["dumb-init", "/etc/subzero/start.sh"]
