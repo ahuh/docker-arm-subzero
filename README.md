@@ -1,6 +1,9 @@
 # Docker ARM SubZero
 Docker image dedicated to ARM processors, hosting a SubZero daemon with embedded MKVMerge tools.<br />
-SubZero is a subtitle autodownloader for TV show / series video files. See GitHub repository: https://github.com/ahuh/subzero<br />
+<br />
+SubZero is a subtitle autodownloader for TV show / series video files.<br />
+See GitHub repository: https://github.com/ahuh/subzero<br />
+<br />
 This image is part of a Docker images collection, intended to build a full-featured seedbox.<br />
 This image is compatible with WD My Cloud EX2 Ultra NAS.<br />
 
