@@ -2,7 +2,7 @@
 #
 # Version 1.0
 
-FROM resin/rpi-raspbian:jessie
+FROM resin/rpi-raspbian:stretch
 LABEL maintainer "ahuh"
 
 # Volume config: contains SubZero.properties (generated at first start if needed)
@@ -18,25 +18,18 @@ ENV subzeroVersion=1.1.3
 # Set execution user (PUID/PGID)
 ENV PUID=\
     PGID=
-	
-# Remove previous apt repos
-RUN rm -rf /etc/apt/preferences.d* \
-	&& mkdir /etc/apt/preferences.d \
-	&& rm -rf /etc/apt/sources.list* \
-	&& mkdir /etc/apt/sources.list.d
+# Set xterm for nano
+ENV TERM xterm
 
-# Add custom bashrc to root (color in bash, ll aliases)
-ADD root/ /root/
-# Add apt config for jessie (stable) and stretch (testing) repos
-ADD preferences.d/ /etc/apt/preferences.d/
-ADD sources.list.d/ /etc/apt/sources.list.d/
+# Copy custom bashrc to root (ll aliases)
+COPY root/ /root/
 
 # Update packages and install software
 RUN apt-get update \
-	&& apt-get install -y curl unzip \
-	&& apt-get install -y openjdk-7-jre-headless \
-	&& apt-get install -y dumb-init -t stretch \    
-    && apt-get install -y mkvtoolnix -t stretch \
+	&& apt-get install -y curl unzip nano \
+	&& apt-get install -y openjdk-8-jre-headless \
+	&& apt-get install -y dumb-init \    
+    && apt-get install -y mkvtoolnix \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 	
 # Download and manually install SubZero
@@ -52,10 +45,10 @@ RUN groupmod -g 1000 users \
     && usermod -G users abc
 	
 # Add scripts
-ADD subzero/ /etc/subzero/
+COPY subzero/ /etc/subzero/
 
 # Make scripts executable
-RUN chmod 777 /etc/subzero/*.sh
+RUN chmod +x /etc/subzero/*.sh
 
 # Launch Subzero at container start
 CMD ["dumb-init", "/etc/subzero/start.sh"]
