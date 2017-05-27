@@ -49,8 +49,6 @@ subzero.mkvmerge.path=mkvmerge
 ```
 * Use `/config` to point to your configuration dir, for instance you may write logs in a subfolder:
 ```
-subzero.mkvmerge.path=mkvmerge
-```
 log4j.appender.report.File=/config/logs/SubZero.html
 ...
 log4j.appender.file.File=/config/logs/SubZero.log
