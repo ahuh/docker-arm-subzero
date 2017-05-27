@@ -13,7 +13,7 @@ id -u <user>
 ```
 * Get user GID:
 ```
-id -u <user>
+id -g <user>
 ```
 The container will run impersonated as this user, in order to have read/write access to the tv shows directory.
 
