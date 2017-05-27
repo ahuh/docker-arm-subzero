@@ -3,8 +3,8 @@
 # =======================================================================================
 # Purge Docker image
 #
-# This script run a new Docker container from image
-# The container is 
+# This script stops and removes all container based on the Docker image, before removing
+# the Docker image itself
 # =======================================================================================
 
 # Parameters

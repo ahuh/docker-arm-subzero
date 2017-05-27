@@ -2,6 +2,9 @@
 
 # =======================================================================================
 # Push image in Docker Hub
+#
+# This script runs a login to Docker Hub, adds a tag to the local image, and pushes the
+# image online
 # =======================================================================================
 
 # Parameters

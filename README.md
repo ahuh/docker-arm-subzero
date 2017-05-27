@@ -19,8 +19,9 @@ $ id -u <user>
 ```
 $ id -g <user>
 ```
-The container will run impersonated as this user, in order to have read/write access to the tv shows directory.
-
+<br />
+The container will run impersonated as this user, in order to have read/write access to the tv shows directory.<br />
+<br />
 You also need to create a directory to store the SubZero configuration.
 
 ### Run container in background
@@ -40,8 +41,8 @@ $ docker-run.sh subzero ahuh/arm-subzero
 (set parameters in `docker-run.sh` before launch)
 
 ### Configure SubZero
-The container will automatically create a `SubZero.properties` file in the configuration dir (only if none was present before).
-
+The container will automatically create a `SubZero.properties` file in the configuration dir (only if none was present before).<br />
+<br />
 You have to configure this file for compatibility with the Docker container:
 * Use `/workingfolder` to point to your tv shows dir:
 ```
@@ -57,7 +58,7 @@ log4j.appender.report.File=/config/logs/SubZero.html
 ...
 log4j.appender.file.File=/config/logs/SubZero.log
 ```
-
+<br />
 Retart the container to reload SubZero configuration:
 ```
 $ docker stop subzero
