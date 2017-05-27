@@ -1,7 +1,8 @@
 # Docker ARM SubZero
-Docker image dedicated to ARM processors, hosting a SubZero daemon with embedded MKVMerge tools.
-SubZero is a subtitle autodownloader for TV show / series video files.
-This image is part of a Docker images collection, intended to build a full-featured seedbox.
+Docker image dedicated to ARM processors, hosting a SubZero daemon with embedded MKVMerge tools.<br />
+SubZero is a subtitle autodownloader for TV show / series video files.<br />
+This image is part of a Docker images collection, intended to build a full-featured seedbox.<br />
+This image is compatible with WD My Cloud EX2 Ultra NAS.<br />
 
 ## Installation
 
@@ -9,11 +10,11 @@ This image is part of a Docker images collection, intended to build a full-featu
 Before running container, you have to retrieve UID and GID for the user used to mount your tv shows directory:
 * Get user UID:
 ```
-id -u <user>
+$ id -u <user>
 ```
 * Get user GID:
 ```
-id -g <user>
+$ id -g <user>
 ```
 The container will run impersonated as this user, in order to have read/write access to the tv shows directory.
 

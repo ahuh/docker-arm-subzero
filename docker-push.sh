@@ -5,7 +5,7 @@
 # =======================================================================================
 
 # Parameters
-if [[ $# != 1 ]] ; then
+if [[ $# != 2 ]] ; then
     echo ''
     echo 'Usage: docker-push.sh <docker-hub-username> <docker-image-name>'
     echo ''
@@ -13,9 +13,23 @@ if [[ $# != 1 ]] ; then
 fi
 
 export DOCKER_ID_USER=$1
-export IMAGE_NAME=$1
+export IMAGE_NAME=$2
 
 # Commands
 docker login
-docker tag $IMAGE_NAME $DOCKER_ID_USER/$IMAGE_NAME
+RESULT=$?
+if [[ $RESULT != 0 ]] ; then
+	exit 1
+fi
+
+docker tag -f $IMAGE_NAME $DOCKER_ID_USER/$IMAGE_NAME
+RESULT=$?
+if [[ $RESULT != 0 ]] ; then
+	exit 1
+fi
+
 docker push $DOCKER_ID_USER/$IMAGE_NAME
+RESULT=$?
+if [[ $RESULT != 0 ]] ; then
+	exit 1
+fi
