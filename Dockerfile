@@ -26,7 +26,7 @@ COPY root/ /root/
 
 # Update packages and install software
 RUN apt-get update \
-	&& apt-get install -y curl unzip nano \
+	&& apt-get install -y curl unzip nano crudini \
 	&& apt-get install -y openjdk-8-jre-headless \
 	&& apt-get install -y dumb-init \    
     && apt-get install -y mkvtoolnix \
