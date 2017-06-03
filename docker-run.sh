@@ -10,7 +10,7 @@
 
 # Parameters
 export V_CONFIG=/shares/P2P/tools/subzero
-export V_WORKINGFOLDER=/shares/Data/SeriesTest
+export V_WORKINGFOLDER=/shares/Data/Series
 export E_PUID=500
 export E_PGID=1000
 
