@@ -2,7 +2,7 @@
 #
 # Version 1.0
 
-FROM resin/rpi-raspbian:stretch
+FROM resin/rpi-raspbian:jessie
 LABEL maintainer "ahuh"
 
 # Volume config: contains SubZero.properties (generated at first start if needed)
@@ -21,15 +21,24 @@ ENV PUID=\
 # Set xterm for nano
 ENV TERM xterm
 
+# Remove previous apt repos
+RUN rm -rf /etc/apt/preferences.d* \
+	&& mkdir /etc/apt/preferences.d \
+	&& rm -rf /etc/apt/sources.list* \
+	&& mkdir /etc/apt/sources.list.d
+
 # Copy custom bashrc to root (ll aliases)
 COPY root/ /root/
+# Copy apt config for jessie (stable) and stretch (testing) repos
+COPY preferences.d/ /etc/apt/preferences.d/
+COPY sources.list.d/ /etc/apt/sources.list.d/
 
 # Update packages and install software
 RUN apt-get update \
 	&& apt-get install -y curl unzip nano crudini \
-	&& apt-get install -y openjdk-8-jre-headless \
-	&& apt-get install -y dumb-init \    
-    && apt-get install -y mkvtoolnix \
+	&& apt-get install -y openjdk-7-jre-headless \
+	&& apt-get install -y dumb-init -t stretch \    
+    && apt-get install -y mkvtoolnix -t stretch \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 	
 # Download and manually install SubZero

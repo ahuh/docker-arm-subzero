@@ -1,12 +1,14 @@
-#! /bin/sh
+#! /bin/bash
 
 SUBZERO_CONFIG_FILE=/config/SubZero.properties
 if [ ! -e "$SUBZERO_CONFIG_FILE" ] ; then
 	# Initialize config file if not exists (start and stop SubZero)
+	echo "Starting Subzero to initialize config file (ignore log errors at initialization) ..."
 	sudo -u ${RUN_AS} ${SUBZERO_LAUNCHER} &
-	sleep 1
+	sleep 3
+	echo "Stopping Subzero after initialization ..."
 	exec /etc/subzero/stop.sh &
-	sleep 1
+	sleep 3
 fi
 
 # Add or update environment vars (base folder, working folder, mkvmerge tool, log dirs)

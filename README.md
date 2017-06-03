@@ -4,8 +4,15 @@ Docker image dedicated to ARMv7 processors, hosting a SubZero daemon with embedd
 SubZero is a subtitle autodownloader for TV show / series video files.<br />
 See GitHub repository: https://github.com/ahuh/subzero<br />
 <br />
-This image is part of a Docker images collection, intended to build a full-featured seedbox.<br />
-This image is compatible with WD My Cloud EX2 Ultra NAS (Docker v1.7.0).<br />
+This image is part of a Docker images collection, intended to build a full-featured seedbox, and compatible with WD My Cloud EX2 Ultra NAS (Docker v1.7.0):
+
+Docker Image | GitHub repository | Docker Hub repository
+------------ | ----------------- | -----------------
+Docker image (ARMv7) hosting a Transmission torrent client with WebUI while connecting to OpenVPN | https://github.com/ahuh/docker-arm-transmissionvpn | https://hub.docker.com/r/ahuh/arm-transmissionvpn
+Docker image (ARMv7) hosting a qBittorrent client with WebUI while connecting to OpenVPN | https://github.com/ahuh/docker-arm-qbittorrentvpn | https://hub.docker.com/r/ahuh/arm-qbittorrentvpn
+Docker image (ARMv7) hosting SubZero with MKVMerge (subtitle autodownloader for TV shows) | https://github.com/ahuh/docker-arm-subzero | https://hub.docker.com/r/ahuh/arm-subzero
+Docker image (ARMv7) hosting a SickRage server with WebUI | https://github.com/ahuh/docker-arm-sickrage | https://hub.docker.com/r/ahuh/arm-sickrage
+Docker image (ARMv7) hosting a NGINX server to secure SickRage, Transmission and qBittorrent | https://github.com/ahuh/docker-arm-nginx | https://hub.docker.com/r/ahuh/arm-nginx
 
 ## Installation
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /bin/bash
 
 SUBZERO_LAUNCHER="java -Dheadless -DconfigDir=/config -jar /opt/subzero/SubZero.jar"
 
