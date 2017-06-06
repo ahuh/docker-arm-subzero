@@ -34,6 +34,7 @@ You also need to create a directory to store the SubZero configuration.
 ### Run container in background
 ```
 $ docker run --name subzero --restart=always -d \
+		--add-host=dockerhost:<docker host IP> \
 		--dns=<ip of dns #1> --dns=<ip of dns #2> \
 		-v <path to config dir>:/config \
 		-v <path to tv shows dir>:/workingfolder \
