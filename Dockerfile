@@ -14,9 +14,10 @@ VOLUME /workingfolder
 VOLUME /userhome
 
 # Set SubZero version to install
-ENV subzeroVersion=1.1.3
+ENV SUBZERO_VERSION=v1.1.3
 # Set execution user (PUID/PGID)
-ENV PUID=\
+ENV AUTO_UPDATE=\
+    PUID=\
     PGID=
 # Set xterm for nano
 ENV TERM xterm
@@ -42,9 +43,9 @@ RUN apt-get update \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 	
 # Download and manually install SubZero
-RUN mkdir /opt/subzero \
-    && curl -sLO https://github.com/ahuh/subzero/releases/download/v${subzeroVersion}/SubZero_v${subzeroVersion}.zip \
-	&& unzip SubZero_v${subzeroVersion}.zip \
+RUN mkdir -p /opt/subzero \
+    && curl -sLO https://github.com/ahuh/subzero/releases/download/${SUBZERO_VERSION}/SubZero_${SUBZERO_VERSION}.zip \
+	&& unzip SubZero_${SUBZERO_VERSION}.zip \
 	&& mv SubZero/SubZero.jar /opt/subzero/SubZero.jar \
 	&& rm -rf SubZero*
 

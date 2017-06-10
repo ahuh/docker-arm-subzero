@@ -2,6 +2,8 @@
 
 SUBZERO_LAUNCHER="java -Dheadless -DconfigDir=/config -jar /opt/subzero/SubZero.jar"
 
+. /etc/subzero/updateSubzero.sh
+
 . /etc/subzero/userSetup.sh
 
 echo "PREPARING SUBZERO CONFIG"

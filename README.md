@@ -39,6 +39,7 @@ $ docker run --name subzero --restart=always -d \
 		-v <path to config dir>:/config \
 		-v <path to tv shows dir>:/workingfolder \
 		-v /etc/localtime:/etc/localtime:ro \
+		-e "AUTO_UPDATE=<auto update SubZero at first start [true/false]>"
 		-e "PUID=<user uid>" \
 		-e "PGID=<user gid>" \
 		ahuh/arm-subzero

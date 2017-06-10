@@ -18,6 +18,7 @@ export DNS_2=8.8.4.4
 export V_CONFIG=/shares/P2P/tools/subzero
 export V_WORKINGFOLDER=/shares/Data/Series
 
+export E_AUTO_UPDATE=true
 export E_PUID=500
 export E_PGID=1000
 
@@ -86,4 +87,4 @@ fi
 # Custom commands
 
 echo "Run container: ${CONTAINER_NAME}"
-docker run --name ${CONTAINER_NAME} --restart=always --add-host=dockerhost:${DOCKERHOST} --dns=${DNS_1} --dns=${DNS_2} -d -v ${V_CONFIG}:/config -v ${V_WORKINGFOLDER}:/workingfolder -v /etc/localtime:/etc/localtime:ro -e "PUID=${E_PUID}" -e "PGID=${E_PGID}" ${IMAGE_NAME}
+docker run --name ${CONTAINER_NAME} --restart=always --add-host=dockerhost:${DOCKERHOST} --dns=${DNS_1} --dns=${DNS_2} -d -v ${V_CONFIG}:/config -v ${V_WORKINGFOLDER}:/workingfolder -v /etc/localtime:/etc/localtime:ro -e "AUTO_UPDATE=${E_AUTO_UPDATE}" -e "PUID=${E_PUID}" -e "PGID=${E_PGID}" ${IMAGE_NAME}
