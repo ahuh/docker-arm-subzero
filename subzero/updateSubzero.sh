@@ -14,8 +14,8 @@ if [ "${AUTO_UPDATE}" = true ] && [ ! -e "${SUBZERO_UPDATED_FILE}" ] ; then
 		
 		rm -rf /opt/subzero
 		mkdir -p /opt/subzero
-	    curl -sLO https://github.com/ahuh/subzero/releases/download/${SUBZERO_VERSION}/SubZero_${SUBZERO_VERSION}.zip
-		unzip SubZero_${SUBZERO_VERSION}.zip
+	    curl -sLO https://github.com/ahuh/subzero/releases/download/${SUBZERO_VERSION_NEW}/SubZero_${SUBZERO_VERSION_NEW}.zip
+		unzip SubZero_${SUBZERO_VERSION_NEW}.zip
 		mv SubZero/SubZero.jar /opt/subzero/SubZero.jar
 		rm -rf SubZero*
 		
